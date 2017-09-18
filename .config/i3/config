@@ -356,11 +356,11 @@ bindsym $mod+Ctrl+x restart
 # w/ Alt
 ##########
 
-bindsym $mod+Mod1+c split v; exec $terminal --role=attached --command "calc -d" && i3-msg resize shrink height 33 px or 33 ppt
-bindsym $mod+Mod1+h split v; exec $terminal --role=attached --command "htop"
-bindsym $mod+Mod1+n split v; exec $terminal --role=attached --command "nmon"
-bindsym $mod+Mod1+p exec systemctl --user restart pp
-bindsym $mod+Mod1+t split v; exec $terminal --role=attached
+#bindsym $mod+Mod1+c split v; exec $terminal --role=attached --command "calc -d" && i3-msg resize shrink height 33 px or 33 ppt
+#bindsym $mod+Mod1+h split v; exec $terminal --role=attached --command "htop"
+#bindsym $mod+Mod1+n split v; exec $terminal --role=attached --command "nmon"
+#bindsym $mod+Mod1+p exec systemctl --user restart pp
+#bindsym $mod+Mod1+t split v; exec $terminal --role=attached
 
 
 ##################################################
@@ -512,3 +512,7 @@ exec --no-startup-id xss-lock -- /usr/local/bin/i3blur
 #exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id indicator-keylock
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id whatsie
+exec --no-startup-id pidgin
+exec --no-startup-id /opt/ibm/Sametime/sametime-connect
+exec --no-startup-id nm-applet
