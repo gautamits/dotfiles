@@ -50,10 +50,10 @@ set_from_resource $base0F color15
 ##############
 
 ## class			border		bg		text    	indicator	child_border
-client.focused			$base00 	$base06 	$base00 	$base00
-client.focused_inactive		$base06 	$base06 	$base03 	$base00
-client.unfocused		$base00 	$base00 	$base07 	$base00
-client.urgent_workspace		$base06 	$base08 	$base07 	$base08
+#client.focused			$base00 	$base06 	$base00 	$base00
+#client.focused_inactive		$base06 	$base06 	$base03 	$base00
+#client.unfocused		$base00 	$base00 	$base07 	$base00
+#client.urgent_workspace		$base06 	$base08 	$base07 	$base08
 #client.placeholder
 
 ## class						border
@@ -109,7 +109,7 @@ assign [class="^vivaldi-stable$"] $ws1
 ## class
 assign [class="urxvt"] $ws2
 
-
+#workspace 3 is for chat
 assign [instance="^crx_bgkodfmeijboinjdegggmkbkjfiagaan$"] $ws3
 assign [instance="^crx_bikioccmkafdpakkkcpdbppfkghcmihk$"] $ws3
 assign [instance="^web.whatsapp.com$"] $ws3
@@ -119,12 +119,15 @@ assign [class="^TeamSpeak$"] $ws3
 assign [class="^Slack$"] $ws3
 assign [class="^Skype$"] $ws3
 
+
+# workspace 4 is for programming
 assign [class="^jetbrains-idea-ce$"] $ws4
 assign [class="^Atom$"] $ws4
 assign [class="^Eclipse$"] $ws4
 assign [class="^MATLAB"] $ws4
 assign [class="^Subl3$"] $ws4
 
+# workspace 5 is for office
 
 assign [class="^libreoffice-"] $ws5
 assign [class="^TeXstudio$"] $ws5
@@ -132,6 +135,8 @@ assign [class="^Wps$"] $ws5
 assign [class="^Wpp$"] $ws5
 assign [class="^Et$"] $ws5
 
+
+#workspace 6 is for music
 
 assign [class="^Clementine$"] $ws6
 assign [class="^Mixxx$"] $ws6
@@ -195,7 +200,7 @@ set $mod Mod1
 # Commands
 ############
 
-set $terminal gnome-terminal
+set $terminal termite
 set $browser firefox
 set $ror $HOME/.config/i3/bin/run-or-raise.sh
 
@@ -257,8 +262,8 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+a exec atom
 #bindsym --release $mod+b exec xset dpms force off
 bindsym $mod+c exec $browser
-#bindsym $mod+d exec rofi -show drun
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show drun
+#bindsym $mod+d exec dmenu_run
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen toggle
 bindsym $mod+g exec gcolor2
@@ -267,7 +272,7 @@ bindsym $mod+v split v
 bindsym $mod+q kill
 # bindsym $mod+i
 # bindsym $mod+j
-bindsym $mod+l exec i3blur
+#bindsym $mod+l exec i3blur
 bindsym $mod+m exec geary
 
 # bindsym $mod+r
@@ -503,11 +508,11 @@ smart_borders on
 # Autostart
 #############
 
-exec xrandr --dpi 96
-exec compton -b
+#exec xrandr --dpi 96
+exec --no-startup-id compton -b
 #exec dropbox
-exec feh --bg-fill ~/Pictures/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
-exec redshift-gtk
+#exec feh --bg-fill ~/Pictures/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
+exec --no-startup-id redshift-gtk
 exec --no-startup-id xss-lock -- /usr/local/bin/i3blur
 #exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id indicator-keylock
@@ -516,3 +521,55 @@ exec --no-startup-id whatsie
 exec --no-startup-id pidgin
 exec --no-startup-id /opt/ibm/Sametime/sametime-connect
 exec --no-startup-id nm-applet
+
+#####################################################################################################################
+#################                          floating or tiled                                        #################
+#####################################################################################################################
+
+
+#floating enabled from some programs - find with xprop
+
+for_window [class="Bleachbit"] floating disable
+for_window [class="Blueberry.py"] floating enable
+for_window [class="Brasero"] floating disable
+for_window [class="Galculator"] floating enable
+for_window [class="Gnome-disks"] floating disable
+for_window [class="^Gnome-font-viewer$"] floating enable
+for_window [class="^Gpick$"] floating enable
+for_window [class="Hexchat"] floating disable
+for_window [class="Imagewriter"] floating enable
+for_window [class="Font-manager"] floating enable
+#for_window [class="qt5ct|Lxappearance] floating enable
+for_window [class="Nitrogen"] floating disable
+for_window [class="Pavucontrol"] floating disable
+for_window [class="Peek"] floating enable
+for_window [class="^Skype$"] floating enable
+for_window [class="^Spotify$"] floating disable
+for_window [class="System-config-printer.py"] floating enable
+for_window [class="Unetbootin.elf"] floating enable
+for_window [class="Usb-creator-gtk"] floating enable
+for_window [class="^Vlc$"] floating disable
+for_window [class="Wine"] floating disable
+for_window [class="Xfburn"] floating disable
+for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="Xfce4-settings-manager"] floating disable
+for_window [class="Xfce4-taskmanager"] floating enable
+
+
+#for_window [instance="gimp"] floating disable
+for_window [instance="script-fu"] border normal
+for_window [instance="variety"] floating disable
+
+
+for_window [title="Copying"] floating enable
+for_window [title="Deleting"] floating enable
+for_window [title="Moving"] floating enable
+for_window [title="^Terminator Preferences$"] floating enable
+
+
+#for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="^Preferences$"] floating enable
+for_window [window_role="setup"] floating enable
+
+
