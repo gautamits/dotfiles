@@ -118,7 +118,7 @@ assign [class="^Pidgin$"] $ws3
 assign [class="^TeamSpeak$"] $ws3
 assign [class="^Slack$"] $ws3
 assign [class="^Skype$"] $ws3
-
+assign [class="^Whatsie$"] $ws3
 
 # workspace 4 is for programming
 assign [class="^jetbrains-idea-ce$"] $ws4
@@ -141,7 +141,7 @@ assign [class="^Et$"] $ws5
 assign [class="^Clementine$"] $ws6
 assign [class="^Mixxx$"] $ws6
 assign [class="^Spotify$"] $ws6
-
+assign [class="Gmpc"] $ws6
 
 ##################################################
 # Automatic actions
