@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in cava compton dunst i3 mpd ncmpcpp polybar ranger scripts x zsh
+for i in cava compton dunst i3 mpd ncmpcpp polybar ranger rofi scripts x zsh
 do 
 	cp -Rf $i ~/.config/
 done
