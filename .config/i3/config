@@ -262,7 +262,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
-bindsym $mod+a exec atom
+#bindsym $mod+a exec atom
 #bindsym --release $mod+b exec xset dpms force off
 bindsym $mod+c exec $browser
 bindsym $mod+d exec rofi -show drun
@@ -276,7 +276,7 @@ bindsym $mod+q kill
 # bindsym $mod+i
 # bindsym $mod+j
 #bindsym $mod+l exec i3blur
-bindsym $mod+m exec geary
+#bindsym $mod+m exec geary
 
 # bindsym $mod+r
 #bindsym $mod+s layout stacking
@@ -398,8 +398,8 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle
 #bindsym Alt+Shift+PgDn exec amixer -q sset 'Master' 5%-
 
 ## Sreen brightness controls
-bindsym XF86MonBrightnessUp exec sudo xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 ## Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -522,9 +522,8 @@ exec --no-startup-id indicator-keylock
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id whatsie
 exec --no-startup-id pidgin
-exec --no-startup-id /opt/ibm/Sametime/sametime-connect
-exec --no-startup-id nm-applet
-
+exec --no-startup-id exec nm-applet
+exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/apocalyptic-hipster.jpg
 #####################################################################################################################
 #################                          floating or tiled                                        #################
 #####################################################################################################################
