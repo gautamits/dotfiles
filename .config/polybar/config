@@ -114,19 +114,22 @@ pin-workspaces = true
 enable-scroll = true
 module-offset-y = 3
 
-;ws-icon-0 = 1;
-;ws-icon-1 = 2;
-;ws-icon-2 = 3;
-;ws-icon-3 = 4;
-;ws-icon-4 = 5;
-;ws-icon-5 = 6;
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
 
-ws-icon-0 = 1;web
-ws-icon-1 = 2;mail
-ws-icon-2 = 3;chat
-ws-icon-3 = 4;code
-ws-icon-4 = 5;docs
-ws-icon-5 = 6;music
+;ws-icon-0 = 1;web
+;ws-icon-1 = 2;mail
+;ws-icon-2 = 3;chat
+;ws-icon-3 = 4;code
+;ws-icon-4 = 5;docs
+;ws-icon-5 = 6;music
+ws-icon-6 = 7;term
+ws-icon-7 = 8;file
+ws-icon-8 = 9;misc
 
 label-focused = %icon%
 label-focused-foreground = ${xrdb:color9}

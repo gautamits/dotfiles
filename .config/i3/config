@@ -104,6 +104,7 @@ set $ws9 "9"
 assign [class="^chromium$"] $ws1
 assign [class="^Firefox$"] $ws1
 assign [class="^vivaldi-stable$"] $ws1
+assign [class="^Opera$"] $ws1
 # assign [class="Nautilus"] $ws1
 
 ## class
@@ -119,6 +120,7 @@ assign [class="^TeamSpeak$"] $ws3
 assign [class="^Slack$"] $ws3
 assign [class="^Skype$"] $ws3
 assign [class="^Whatsie$"] $ws3
+assign [class="^Franz$"] $ws3
 
 # workspace 4 is for programming
 assign [class="^jetbrains-idea-ce$"] $ws4
@@ -500,7 +502,7 @@ new_float pixel 3
 ## Doc:
 ## https://github.com/Airblader/i3
 
- gaps inner 5
+ gaps inner 10
  gaps outer 5
 
 smart_gaps on
@@ -520,9 +522,12 @@ exec --no-startup-id xss-lock -- /usr/local/bin/i3blur
 #exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id indicator-keylock
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id whatsie
-exec --no-startup-id pidgin
+#exec --no-startup-id whatsie
+#exec --no-startup-id pidgin
 exec --no-startup-id exec nm-applet
+exec --no-startup-id synclient TapButton1=1 TapButton2=2 TapButton3=3
+exec --no-startup-id slack
+exec --no-startup-id franz
 exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/apocalyptic-hipster.jpg
 #####################################################################################################################
 #################                          floating or tiled                                        #################
