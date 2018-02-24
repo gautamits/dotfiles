@@ -1,10 +1,12 @@
-[~] rofi -dump-xresources                                                                                          
-The script command 'window' has 1 options, but needs 2: <name>:<script>.
-Invalid script switcher: window
+![~] rofi -dump-xresources                                                                                          
+!The script command 'window' has 1 options, but needs 2: <name>:<script>.
+!Invalid script switcher: window
+rofi.show-icons                          true
+rofi.drun-icon-theme: Dalisha
 ! Enabled modi
 rofi.modi:                           window,run,ssh
 ! Window opacity
-rofi.opacity:                        100
+rofi.opacity:                        50
 ! Window width
 rofi.width:                          50
 ! Number of lines
@@ -14,15 +16,15 @@ rofi.columns:                        1
 ! Font to use
 rofi.font:                           mono 12
 ! Color scheme for normal row
-rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
+!rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
 ! Color scheme for urgent row
-rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
+!rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
 ! Color scheme for active row
-rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
+!rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
 ! Color scheme window
-rofi.color-window:                   #fdf6e3,#002b36
+!rofi.color-window:                   #fdf6e3,#002b36
 ! Border width
-rofi.bw:                             1
+rofi.bw:                             5
 ! Location on screen
 rofi.location:                       0
 ! Padding
@@ -56,7 +58,7 @@ rofi.case-sensitive:                 false
 ! Cycle through the results list
 rofi.cycle:                          true
 ! Enable sidebar-mode
-rofi.sidebar-mode:                   false
+rofi.sidebar-mode:                   true
 ! Row height (in chars)
 rofi.eh:                             1
 ! Enable auto select mode
@@ -68,11 +70,11 @@ rofi.parse-known-hosts:              true
 ! Set the modi to combine in combi mode
 rofi.combi-modi:                     window,run
 ! Do a more fuzzy matching
-rofi.fuzzy:                          false
+rofi.fuzzy:                          true
 ! Use glob matching
 rofi.glob:                           false
 ! Use regex matching
-rofi.regex:                          false
+rofi.regex:                          true
 ! Tokenize input string
 rofi.tokenize:                       true
 ! Monitor id to show on
@@ -88,7 +90,7 @@ rofi.hide-scrollbar:                 false
 ! Fullscreen
 rofi.fullscreen:                     false
 ! Fake transparency
-rofi.fake-transparency:              false
+rofi.fake-transparency:              true
 ! DPI
 rofi.dpi:                            -1
 ! Threads to use for string matching
@@ -203,11 +205,4 @@ rofi.kb-custom-17:                   Alt+Shift+7
 rofi.kb-custom-18:                   Alt+Shift+8
 ! Custom Keybinding 19
 rofi.kb-custom-19:                   Alt+Shift+9
-! The display name of this browser
-rofi.display-ssh:                    
-! The display name of this browser
-rofi.display-run:                    
-! The display name of this browser
-rofi.display-drun:                   
-! The display name of this browser
-rofi.display-combi:
+rofi.theme: /usr/share/rofi/themes/arthur.rasi
