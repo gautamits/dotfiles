@@ -15,17 +15,7 @@
 ## text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango: DejaRVu Sans Mono 8
 
-## Before i3 v4.8, we used to recommend this one as the default.
-## The font below is very space-efficient, that is, it looks good, sharp and
-## clear in small sizes. However, its unicode glyph coverage is limited, the old
-## X core fonts rendering does not support right-to-left and this being a bitmap
-## font, it doesn’t scale on retina/hidpi displays.
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
-
-####################################################################################################
-# Colors
-##########
 
 set_from_resource $base00 color0
 set_from_resource $base01 color1
@@ -49,15 +39,13 @@ set_from_resource $base0F color15
 # Containers
 ##############
 
-## class			border		bg		text    	indicator	child_border
-#client.focused			$base00 	$base06 	$base00 	$base00
-#client.focused_inactive		$base06 	$base06 	$base03 	$base00
-#client.unfocused		$base00 	$base00 	$base07 	$base00
-#client.urgent_workspace		$base06 	$base08 	$base07 	$base08
+#class			             border		bg		    text    	indicator	child_border
+client.focused			     $base00 	$base06 	$base00 	$base00
+client.focused_inactive		 $base06 	$base06 	$base03 	$base00
+client.unfocused		     $base00 	$base00 	$base07 	$base00
+client.urgent_workspace		 $base06 	$base08 	$base07 	$base08
 #client.placeholder
 
-## class						border
-# client.background
 
 
 ####################################################################################################
@@ -111,8 +99,7 @@ assign [class="^Opera$"] $ws1
 assign [class="urxvt"] $ws2
 
 #workspace 3 is for chat
-assign [instance="^crx_bgkodfmeijboinjdegggmkbkjfiagaan$"] $ws3
-assign [instance="^crx_bikioccmkafdpakkkcpdbppfkghcmihk$"] $ws3
+
 assign [instance="^web.whatsapp.com$"] $ws3
 assign [instance="^m.facebook.com__messages$"] $ws3
 assign [class="^Pidgin$"] $ws3
@@ -216,7 +203,6 @@ set $ror $HOME/.config/i3/bin/run-or-raise.sh
 
 ## Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier Shift
-
 bindsym $mod+s exec rofi -show window
 
 bindsym Ctrl+Mod1+Delete exec systemctl --user start suspend
@@ -233,16 +219,6 @@ exec setxkbmap -option compose:ralt
 
 #bindsym $mod+Tab workspace back_and_forth
 
-# bindsym $mod+F1
-# bindsym $mod+F2
-# bindsym $mod+F3
-# bindsym $mod+F4
-# bindsym $mod+F5
-# bindsym $mod+F6
-# bindsym $mod+F7
-# bindsym $mod+F8
-# bindsym $mod+F9
-# bindsym $mod+F10
 bindsym $mod+F12 fullscreen toggle
 # bindsym $mod+F12
 
@@ -264,8 +240,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
-#bindsym $mod+a exec atom
-#bindsym --release $mod+b exec xset dpms force off
+
 bindsym $mod+c exec $browser
 bindsym $mod+d exec rofi -show drun
 #bindsym $mod+d exec dmenu_run
@@ -275,20 +250,13 @@ bindsym $mod+g exec gcolor2
 bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+q kill
-# bindsym $mod+i
-# bindsym $mod+j
-#bindsym $mod+l exec i3blur
+bindsym $mod+l exec i3blur
 #bindsym $mod+m exec geary
 
-# bindsym $mod+r
 #bindsym $mod+s layout stacking
 bindsym $mod+Return exec $terminal
-# bindsym $mod+u
-
 bindsym $mod+w layout tabbed
-# bindsym $mod+x
-# bindsym $mod+y
-# bindsym $mod+z
+
 
 ## Change focus to urgent window
 bindsym $mod+space [urgent=latest] focus
@@ -359,23 +327,7 @@ bindsym $mod+Ctrl+r mode "resize"
 bindsym $mod+Ctrl+s split v
 bindsym $mod+Ctrl+w split h
 bindsym $mod+Ctrl+x restart
-
-
-
-##################################################
-# w/ Alt
-##########
-
-#bindsym $mod+Mod1+c split v; exec $terminal --role=attached --command "calc -d" && i3-msg resize shrink height 33 px or 33 ppt
-#bindsym $mod+Mod1+h split v; exec $terminal --role=attached --command "htop"
-#bindsym $mod+Mod1+n split v; exec $terminal --role=attached --command "nmon"
-#bindsym $mod+Mod1+p exec systemctl --user restart pp
-#bindsym $mod+Mod1+t split v; exec $terminal --role=attached
-
-
-##################################################
-# Other modifiers
-###################
+bindsym $mod+z exec --no-startup-id draw
 
 ## Alt
 bindsym Mod1+F4 kill
@@ -412,16 +364,6 @@ bindsym --release XF86AudioPlay exec playerctl play-pause
 bindsym --release XF86AudioNext exec playerctl next
 bindsym --release XF86AudioPrev exec playerctl previous
 
-# GIGABYTE Aero 14 does not have media keys. Therefore we use alt+(arrow keys) to control media
-#bindsym Mod1+Down  exec playerctl play-pause
-#bindsym Mod1+Right exec playerctl next
-#bindsym Mod1+Left  exec playerctl previous
-#bindsym Mod1+Up    exec playerctl stop
-
-#bindsym Mod1+Down  exec mpc_toggle
-#bindsym Mod1+Right exec mpc next
-#bindsym Mod1+Left  exec mpc prev
-#bindsym Mod1+Up    exec mpc stop
 
 
 ##################################################
@@ -469,41 +411,12 @@ mode "resize" {
 new_window pixel 2
 new_float pixel 3
 
-# hide_edge_borders both
 
-
-####################################################################################################
-# i3bar
-#########
-
-## Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
-#bar {
-#	position bottom
-#	status_command i3blocks
-
-#	colors {
-#		colorclass			border		background	text
-#		separator			$base02
-#		background			$base00
-#		statusline			$base05
-
-#		focused_workspace	$base09		$base09		$base00
-#		active_workspace	$base02		$base02		$base07
-#		inactive_workspace	$base00		$base00		$base02
-#		urgent_workspace	$base0E		$base0E		$base00
-#	}
-#}
-
-
-####################################################################################################
 # Gaps
 ########
 
-## Doc:
-## https://github.com/Airblader/i3
-
- gaps inner 10
- gaps outer 5
+gaps inner 10
+gaps outer 5
 
 smart_gaps on
 smart_borders on
@@ -515,8 +428,6 @@ smart_borders on
 
 #exec xrandr --dpi 96
 exec --no-startup-id compton -b
-#exec dropbox
-#exec feh --bg-fill ~/Pictures/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xss-lock -- /usr/local/bin/i3blur
 #exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
@@ -528,6 +439,7 @@ exec --no-startup-id exec nm-applet
 exec --no-startup-id synclient TapButton1=1 TapButton2=2 TapButton3=3
 exec --no-startup-id slack
 exec --no-startup-id franz
+exec --no-startup-id draw
 exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/apocalyptic-hipster.jpg
 #####################################################################################################################
 #################                          floating or tiled                                        #################
@@ -536,6 +448,7 @@ exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/apocalyptic
 
 #floating enabled from some programs - find with xprop
 
+for_window [class="URxvt" instance="floating"] floating enable
 for_window [class="Bleachbit"] floating disable
 for_window [class="Blueberry.py"] floating enable
 for_window [class="Brasero"] floating disable
@@ -578,5 +491,3 @@ for_window [title="^Terminator Preferences$"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable
-
-
