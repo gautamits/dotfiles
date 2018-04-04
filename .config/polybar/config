@@ -2,8 +2,8 @@
 width = 100%
 height = 25
 clickareas = 35
-monitor = LVDS-1
-
+#monitor = LVDS-1
+monitor = eDP1
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
 
@@ -28,8 +28,8 @@ modules-right = mail temperature wireless-network date
 width = 100%
 height = 25
 clickareas = 35
-monitor = LVDS-1
-
+#monitor = LVDS-1
+monitor = eDP1
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
 
