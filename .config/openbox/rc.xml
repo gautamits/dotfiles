@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Triste-Froly</name>
+    <name>Degrade-Froly</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -319,16 +319,6 @@
         <direction>down</direction>
       </action>
     </keybind>
-    <!-- Keybindings for running applications -->
-    <keybind key="W-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Konqueror</name>
-        </startupnotify>
-        <command>kfmclient openProfile filemanagement</command>
-      </action>
-    </keybind>
     <!-- keybindings for dmenu-->
     <keybind key="A-d">
       <action name="Execute">
@@ -350,7 +340,7 @@
       </action>
     </keybind>
     <!-- keybindings for window switch-->
-    <keybind key="A-w">
+    <keybind key="A-s">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -359,11 +349,103 @@
         <command>rofi -show window</command>
       </action>
     </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>brightness</name>
+        </startupnotify>
+        <command>xbacklight -dec 10</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>brightness</name>
+        </startupnotify>
+        <command>xbacklight -inc 10</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Sound</name>
+        </startupnotify>
+        <command>amixer -D pulse sset Master 5%-</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Sound</name>
+        </startupnotify>
+        <command>amixer -D pulse sset Master 5%+</command>
+      </action>
+    </keybind>
+    <!-- Window Management -->
+    <keybind key="W-Left">        # HalfLeftScreen
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>0</y><height>100%</height><width>50%</width></action>
+    </keybind>
+    <keybind key="W-Right">       # HalfRightScreen
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo"><x>-0</x><y>0</y><height>100%</height><width>50%</width></action>
+    </keybind>
+    <keybind key="W-Up">          # HalfUpperScreen
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo"><x>0</x><y>0</y><width>100%</width><height>50%</height></action>
+    </keybind>
+    <keybind key="W-Down">        # HalfLowerScreen
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
+    </keybind>
+    <keybind key="W-q">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+        <x>0%</x>
+        <y>0%</y>
+      </action>
+    </keybind>
+    <keybind key="W-e">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+        <x>50%</x>
+        <y>0%</y>
+      </action>
+    </keybind>
+    <keybind key="W-z">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+        <x>0%</x>
+        <y>50%</y>
+      </action>
+    </keybind>
+    <keybind key="W-c">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+        <x>50%</x>
+        <y>50%</y>
+      </action>
+    </keybind>
+    <keybind key="W-s">
+      <action name="Maximize"/>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
-    <doubleClickTime>500</doubleClickTime>
+    <doubleClickTime>800</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
     <screenEdgeWarpTime>400</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the

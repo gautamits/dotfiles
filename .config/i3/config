@@ -1,4 +1,4 @@
-# i3 config file (v4)
+ # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -40,10 +40,10 @@ set_from_resource $base0F color15
 ##############
 
 #class			             border		bg		    text    	indicator	child_border
-client.focused			     $base00 	$base06 	$base00 	$base00
-client.focused_inactive		 $base06 	$base06 	$base03 	$base00
-client.unfocused		     $base00 	$base00 	$base07 	$base00
-client.urgent_workspace		 $base06 	$base08 	$base07 	$base08
+#client.focused			     $base00 	$base06 	$base00 	$base00
+#client.focused_inactive		 $base06 	$base06 	$base03 	$base00
+#client.unfocused		     $base00 	$base00 	$base07 	$base00
+#client.urgent_workspace		 $base06 	$base08 	$base07 	$base08
 #client.placeholder
 
 

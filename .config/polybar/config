@@ -4,7 +4,8 @@ height = 25
 clickareas = 35
 #monitor = LVDS-1
 monitor = eDP1
-background = ${xrdb:background}
+#background = ${xrdb:background}
+background = #295153
 foreground = ${xrdb:foreground}
 
 locale = en_US.UTF-8
@@ -30,7 +31,8 @@ height = 25
 clickareas = 35
 #monitor = LVDS-1
 monitor = eDP1
-background = ${xrdb:background}
+# background = ${xrdb:background}
+background = #295153
 foreground = ${xrdb:foreground}
 
 locale = en_US.UTF-8
@@ -193,9 +195,9 @@ format = <label>  <bar>
 label =  %percentage%%
 format-foreground = ${xrdb:color12}
 bar-empty = ~
-bar-fill = ~
+bar-fill = *
 bar-indicator = |
-bar-width = 10
+bar-width = 5
 bar-fill-foreground = ${xrdb:color12}
 
 [module/spotify]
@@ -219,20 +221,21 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6600
 
-format-playing = <toggle> <label-song>  <bar-progress>
-format-paused = <toggle> <label-song>  <bar-progress>
-format-offline =
-
+format-playing = <icon-prev> <toggle> <icon-next> <label-song>  <bar-progress>
+format-paused = <icon-prev> <toggle> <icon-next> <label-song>  <bar-progress>
+label-offline =   mpd is offline
+format-offline= <label-offline>
 format-playing-foreground = ${xrdb:color4}
 format-paused-foreground = ${xrdb:color7}
 
 #label-song = %artist% - %title%
 label-song = %title%
-
+icon-next = 
+icon-prev = 
 icon-play = 
 icon-pause = 
 
-bar-progress-width = 45
+bar-progress-width = 10
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = ─

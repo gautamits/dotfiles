@@ -1,9 +1,18 @@
 #!/bin/bash
 for i in .config/*
 do 
-	ln -s /media/`whoami`/data/workspace/dotfiles/$i ~/.config
+	if [ -d ~/.config/$i ]
+		then rm -r ~/.config/$i
+	fi
+	ln -sf /media/`whoami`/data/workspace/dotfiles/$i ~/.config
 done
 
+#conky
+#if [ -d ~/.conky ]
+#	then rm -r ~/.conky
+#	
+#fi
+#ln -sf /media/`whoami`/data/workspace/dotfiles/.config/conky ~/.conky
 
 #i3 reload
 i3-msg restart
