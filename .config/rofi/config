@@ -2,13 +2,13 @@
 !The script command 'window' has 1 options, but needs 2: <name>:<script>.
 !Invalid script switcher: window
 rofi.show-icons                          true
-rofi.drun-icon-theme: Dalisha
+rofi.drun-icon-theme: Moka
 ! Enabled modi
-rofi.modi:                           window,run,ssh
+rofi.modi:                           window,run,ssh,windowcd,drun,combi,keys
 ! Window opacity
-rofi.opacity:                        80
+rofi.opacity:                        60
 ! Window width
-rofi.width:                          100
+rofi.width:                          50
 ! Number of lines
 rofi.lines:                          15
 ! Number of columns
@@ -26,17 +26,17 @@ rofi.font:                           mono 12
 ! Border width
 rofi.bw:                             5
 ! Location on screen
-rofi.location:                       0
+rofi.location:                       2
 ! Padding
 rofi.padding:                        5
 ! Y-offset relative to location
-rofi.yoffset:                        0
+rofi.yoffset:                        200
 ! X-offset relative to location
 rofi.xoffset:                        0
 ! Always show number of lines
-rofi.fixed-num-lines:                false
+rofi.fixed-num-lines:                true
 ! Terminal to use
-rofi.terminal:                       rofi-sensible-terminal
+rofi.terminal:                       xfce4-terminal
 ! Ssh client to use
 rofi.ssh-client:                     ssh
 ! Ssh command to execute
@@ -84,7 +84,7 @@ rofi.line-margin:                    2
 ! Pre-set filter
 rofi.filter:                         
 ! Separator style (none, dash, solid)
-rofi.separator-style:                dash
+rofi.separator-style:                solid
 ! Hide scroll-bar
 rofi.hide-scrollbar:                 false
 ! Fullscreen
@@ -205,4 +205,4 @@ rofi.kb-custom-17:                   Alt+Shift+7
 rofi.kb-custom-18:                   Alt+Shift+8
 ! Custom Keybinding 19
 rofi.kb-custom-19:                   Alt+Shift+9
-rofi.theme: /usr/share/rofi/themes/android_notification.rasi
+rofi.theme: /usr/share/rofi/themes/gruvbox-dark-soft.rasi

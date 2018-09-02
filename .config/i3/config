@@ -9,7 +9,7 @@
 
 ## Font for window titles. Will also be used by the bar unless a different font
 ## is used in the bar {} block below.
-#font pango: Roboto, FontAwesome 10
+# font pango: Roboto, FontAwesome 7
 
 ## This font is widely installed, provides lots of unicode glyphs, right-to-left
 ## text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -40,10 +40,10 @@ set_from_resource $base0F color15
 ##############
 
 #class			             border		bg		    text    	indicator	child_border
-#client.focused			     $base00 	$base06 	$base00 	$base00
-#client.focused_inactive		 $base06 	$base06 	$base03 	$base00
-#client.unfocused		     $base00 	$base00 	$base07 	$base00
-#client.urgent_workspace		 $base06 	$base08 	$base07 	$base08
+client.focused			     $base00 	$base06 	$base00 	$base00
+client.focused_inactive		 $base06 	$base06 	$base03 	$base00
+client.unfocused		     $base00 	$base00 	$base07 	$base00
+client.urgent		 		$base06 	$base08 	$base07 	$base08
 #client.placeholder
 
 
@@ -65,9 +65,9 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
-# workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth yes
 
-# workspace $wsX output HDMI2
+workspace $wsX output HDMI2
 
 
 ####################################################################################################
@@ -193,7 +193,7 @@ set $mod Mod1
 ############
 
 set $terminal termite
-set $browser firefox
+set $browser google-chrome-stable
 set $ror $HOME/.config/i3/bin/run-or-raise.sh
 
 
@@ -203,12 +203,12 @@ set $ror $HOME/.config/i3/bin/run-or-raise.sh
 
 ## Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier Shift
-bindsym $mod+s exec rofi -show window
+bindsym $mod+Shift+s exec rofi -show window -theme ~/.config/rofi/themes/fullScreen.rasi
 
 bindsym Ctrl+Mod1+Delete exec systemctl --user start suspend
 
-bindsym Mod1+Tab focus right
-bindsym Mod1+Shift+Tab focus down
+#bindsym Mod1+Tab focus right
+#bindsym Mod1+Shift+Tab focus down
 
 # set compose key
 exec setxkbmap -option compose:ralt
@@ -217,7 +217,7 @@ exec setxkbmap -option compose:ralt
 # w/o secondary modifier
 ##########################
 
-#bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 bindsym $mod+F12 fullscreen toggle
 # bindsym $mod+F12
@@ -242,7 +242,7 @@ bindsym $mod+9 workspace $ws9
 
 
 bindsym $mod+c exec $browser
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show drun -theme ~/.config/rofi/themes/fullScreen.rasi
 #bindsym $mod+d exec dmenu_run
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen toggle
@@ -250,10 +250,10 @@ bindsym $mod+g exec gcolor2
 bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+q kill
-bindsym $mod+l exec i3blur
+bindsym $mod+l exec ~/.config/scripts/i3blur
 #bindsym $mod+m exec geary
 
-#bindsym $mod+s layout stacking
+bindsym $mod+s layout stacking
 bindsym $mod+Return exec $terminal
 bindsym $mod+w layout tabbed
 
@@ -284,25 +284,15 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
-bindsym $mod+Shift+a move left
-bindsym $mod+Shift+d move right
-bindsym $mod+Shift+s move down
-bindsym $mod+Shift+w move up
-# bindsym $mod+Shift+b
-bindsym $mod+Shift+c reload
-
-
-bindsym $mod+Shift+q nop
-
-# bindsym $mod+Shift+x
-# bindsym $mod+Shift+y
-# bindsym $mod+Shift+z
-
 ## Move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+a move left
+bindsym $mod+Shift+d move right
+#bindsym $mod+Shift+s move down
+bindsym $mod+Shift+w move up
 
 
 ##################################################
@@ -311,23 +301,17 @@ bindsym $mod+Shift+Right move right
 
 bindsym $mod+Ctrl+Escape exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+Ctrl+Tab layout toggle split
-
 bindsym $mod+Ctrl+a sticky toggle
-# bindsym $mod+Ctrl+b
-bindsym $mod+Ctrl+c reload
-# bindsym $mod+Ctrl+d
+
 bindsym $mod+Ctrl+e layout default
 bindsym $mod+Ctrl+f floating toggle
 bindsym $mod+Ctrl+g exec xrandr --output eDP1 --auto --output VIRTUAL2 --off
 bindsym $mod+Ctrl+h exec xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1
 
-bindsym $mod+Ctrl+q layout tabbed
-bindsym $mod+Ctrl+r mode "resize"
-bindsym $mod+Ctrl+s split v
-bindsym $mod+Ctrl+w split h
-bindsym $mod+Ctrl+x restart
-bindsym $mod+z exec --no-startup-id draw
+#bindsym $mod+Ctrl+q layout tabbed
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r restart
+bindsym $mod+z exec --no-startup-id ~/.config/scripts/draw.sh
 
 ## Alt
 bindsym Mod1+F4 kill
@@ -400,7 +384,7 @@ mode "resize" {
 # Mouse settings
 ##################
 
-# focus_follows_mouse no
+# focus_follows_mouse yes
 # mouse_warping none
 
 
@@ -415,8 +399,8 @@ new_float pixel 3
 # Gaps
 ########
 
-gaps inner 10
-gaps outer 5
+gaps inner 4
+gaps outer 2
 
 smart_gaps on
 smart_borders on
@@ -425,22 +409,21 @@ smart_borders on
 ####################################################################################################
 # Autostart
 #############
-
+exec --no-startup-id mpd
+exec --no-startup-id xinput set-prop 11 276 1
 #exec xrandr --dpi 96
 exec --no-startup-id compton -b
-exec --no-startup-id redshift-gtk
-exec --no-startup-id xss-lock -- /usr/local/bin/i3blur
+exec --no-startup-id redshift-gtk -l 28:77 -t 4500:3500
+exec --no-startup-id xss-lock -- ~/.config/scripts/i3blur
 #exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
-exec --no-startup-id indicator-keylock
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#exec --no-startup-id whatsie
-#exec --no-startup-id pidgin
 exec --no-startup-id exec nm-applet
-exec --no-startup-id synclient TapButton1=1 TapButton2=2 TapButton3=3
-exec --no-startup-id slack
-exec --no-startup-id franz
-exec --no-startup-id draw
-exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/apocalyptic-hipster.jpg
+#exec --no-startup-id franz
+#exec --no-startup-id draw
+exec --no-statup-id exec conky -c ~/.config/conky/sidepanes/sidepanes.conkyrc
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/macos_sierra_mountains_5k.jpg
+exec --no-startup-id clipit
 #####################################################################################################################
 #################                          floating or tiled                                        #################
 #####################################################################################################################

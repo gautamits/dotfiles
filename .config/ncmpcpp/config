@@ -27,10 +27,10 @@ lyrics_directory = ~/Music/lyrics
 
 ##### connection settings #####
 #
-mpd_host = gui
-#mpd_host = 127.0.0.1 mpc status
+#mpd_host = gui
+mpd_host = 127.0.0.1 mpc status
 #
-mpd_port = 4200
+mpd_port = 6600
 #
 mpd_connection_timeout = 5
 #
