@@ -13,7 +13,7 @@
 
 ## This font is widely installed, provides lots of unicode glyphs, right-to-left
 ## text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: DejaRVu Sans Mono 8
+font pango: DejaVu Sans Mono 8
 
 
 
@@ -34,13 +34,13 @@ set_from_resource $base0C color12
 set_from_resource $base0D color13
 set_from_resource $base0E color14
 set_from_resource $base0F color15
-
+set $white #FFFFFF
 ####################################################################################################
 # Containers
 ##############
 
 #class			             border		bg		    text    	indicator	child_border
-client.focused			     $base00 	$base06 	$base00 	$base00
+client.focused			     $white 	$base06 	$base00 	$base00
 client.focused_inactive		 $base06 	$base06 	$base03 	$base00
 client.unfocused		     $base00 	$base00 	$base07 	$base00
 client.urgent		 		$base06 	$base08 	$base07 	$base08
@@ -192,7 +192,7 @@ set $mod Mod1
 # Commands
 ############
 
-set $terminal termite
+#set $terminal termite
 set $browser google-chrome-stable
 set $ror $HOME/.config/i3/bin/run-or-raise.sh
 
@@ -254,7 +254,7 @@ bindsym $mod+l exec ~/.config/scripts/i3blur
 #bindsym $mod+m exec geary
 
 bindsym $mod+s layout stacking
-bindsym $mod+Return exec $terminal
+bindsym $mod+Return exec termite
 bindsym $mod+w layout tabbed
 
 
@@ -399,8 +399,8 @@ new_float pixel 3
 # Gaps
 ########
 
-gaps inner 4
-gaps outer 2
+gaps inner 15
+gaps outer 8
 
 smart_gaps on
 smart_borders on
@@ -410,15 +410,15 @@ smart_borders on
 # Autostart
 #############
 exec --no-startup-id mpd
-exec --no-startup-id xinput set-prop 11 276 1
+exec --no-startup-id xinput set-prop 11 280 1
 #exec xrandr --dpi 96
-exec --no-startup-id compton -b
+exec --no-startup-id compton -r 12 -o 0.59 -l 0 -t 0 --shadow -i 0.7 --shadow-red 0.4 --shadow-green 0.4 --shadow-blue 0.9 -b
 exec --no-startup-id redshift-gtk -l 28:77 -t 4500:3500
 exec --no-startup-id xss-lock -- ~/.config/scripts/i3blur
 #exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id exec nm-applet
-#exec --no-startup-id franz
+exec --no-startup-id franz
 #exec --no-startup-id draw
 exec --no-statup-id exec conky -c ~/.config/conky/sidepanes/sidepanes.conkyrc
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
