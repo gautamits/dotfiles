@@ -38,12 +38,11 @@ set $white #FFFFFF
 ####################################################################################################
 # Containers
 ##############
-
-#class			             border		bg		    text    	indicator	child_border
-client.focused			     $white 	$base06 	$base00 	$base00
-client.focused_inactive		 $base06 	$base06 	$base03 	$base00
-client.unfocused		     $base00 	$base00 	$base07 	$base00
-client.urgent		 		$base06 	$base08 	$base07 	$base08
+#border	bg   text indicator child_border
+client.focused  $white $base06 $base00 $base00
+client.focused_inactive  $base06 $base06 $base03 $base00
+client.unfocused    $base00 $base00 $base07 $base00
+client.urgent	$base06	$base08	$base07	$base08
 #client.placeholder
 
 
@@ -192,7 +191,7 @@ set $mod Mod1
 # Commands
 ############
 
-#set $terminal termite
+set $terminal termite
 set $browser google-chrome-stable
 set $ror $HOME/.config/i3/bin/run-or-raise.sh
 
@@ -399,8 +398,8 @@ new_float pixel 3
 # Gaps
 ########
 
-gaps inner 15
-gaps outer 8
+gaps inner 8
+gaps outer 4
 
 smart_gaps on
 smart_borders on
@@ -410,9 +409,9 @@ smart_borders on
 # Autostart
 #############
 exec --no-startup-id mpd
-exec --no-startup-id xinput set-prop 11 280 1
+exec --no-startup-id xinput set-prop 11 277 1
 #exec xrandr --dpi 96
-exec --no-startup-id compton -r 12 -o 0.59 -l 0 -t 0 --shadow -i 0.7 --shadow-red 0.4 --shadow-green 0.4 --shadow-blue 0.9 -b
+exec --no-startup-id compton -r 12 -o 0.59 -l 0 -t 0
 exec --no-startup-id redshift-gtk -l 28:77 -t 4500:3500
 exec --no-startup-id xss-lock -- ~/.config/scripts/i3blur
 #exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
@@ -422,7 +421,7 @@ exec --no-startup-id franz
 #exec --no-startup-id draw
 exec --no-statup-id exec conky -c ~/.config/conky/sidepanes/sidepanes.conkyrc
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/macos_sierra_mountains_5k.jpg
+exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/apocalyptic-hipster.jpg
 exec --no-startup-id clipit
 #####################################################################################################################
 #################                          floating or tiled                                        #################

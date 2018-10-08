@@ -1,0 +1,93 @@
+conky.config = {
+--##  Begin Window Settings  #####################
+own_window = true,
+own_window_type = 'override',
+own_window_transparent = true,
+own_window_hints = 'undecorated,below,skip_taskbar,skip_pager',
+own_window_colour = '#000000',
+own_window_class = 'Conky',
+own_window_title = 'Text Dumper Conky',
+
+minimum_width = 400, 
+minimum_height = 650,
+maximum_width = 400,
+
+gap_x = 600,--## left | right
+gap_y = 0,--## up | down
+
+use_xft = true,
+font = 'Roboto Regular:size=10',
+
+
+xftalpha = 1,
+
+override_utf8_locale = true,
+
+uppercase = false,
+
+draw_shades = false,--yes
+default_shade_color = 'black',
+
+draw_outline = false,-- amplifies text if yes
+default_outline_color = 'black',
+
+default_color = '#d8dee8',-- White
+color1 = '#bf616a',-- Red
+color2 = '#a3be8c',-- Green
+color3 = '#ebcb8b',-- Yellow
+color4 = '#81a1c1',-- Blue
+
+draw_borders = false,
+stippled_borders = 0,
+border_inner_margin = 0,
+border_outer_margin = 0,
+-- border width
+border_width = 0,
+-- graph borders
+draw_graph_borders = true,--no
+--default_graph_size 15 40
+--#######################  End Borders Secton  ###
+--##  Miscellaneous Section  #####################
+-- Boolean value, if true, Conky will be forked to background when started.
+background = true,
+-- Adds spaces around certain objects to stop them from moving other things
+-- around, this only helps if you are using a mono font
+-- Options: right, left or none
+use_spacer = 'none',
+
+-- Default and Minimum size is 256 - needs more for single commands that
+-- "call" a lot of text IE: bash scripts
+--text_buffer_size 6144
+
+-- Subtract (file system) buffers from used memory?
+no_buffers = true,
+
+-- change GiB to G and MiB to M
+short_units = true,
+
+-- Like it says, ot pads the decimals on % values
+-- doesn't seem to work since v1.7.1
+pad_percents = 2,
+
+-- Imlib2 image cache size, in bytes. Default 4MiB Increase this value if you use
+-- $image lots. Set to 0 to disable the image cache.
+imlib_cache_size = 0,
+
+-- Use the Xdbe extension? (eliminates flicker)
+-- It is highly recommended to use own window with this one
+-- so double buffer won't be so big.
+double_buffer = true,
+
+--   Maximum size of user text buffer, i.e. layout below TEXT line in config file
+--  (default is 16384 bytes)
+-- max_user_text 16384
+
+-- Desired output unit of all objects displaying a temperature. Parameters are
+-- either "fahrenheit" or "celsius". The default unit is degree Celsius.
+-- temperature_unit Fahrenheit
+--################  End Miscellaneous Section  ###
+
+update_interval = 1,
+
+};
+conky.text = [[ ${execpi 120 todo.sh -d ~/workspace/vim.txt ls} ]]

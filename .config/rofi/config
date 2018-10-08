@@ -36,7 +36,7 @@ rofi.xoffset:                        0
 ! Always show number of lines
 rofi.fixed-num-lines:                true
 ! Terminal to use
-rofi.terminal:                       xfce4-terminal
+rofi.terminal:                       termite
 ! Ssh client to use
 rofi.ssh-client:                     ssh
 ! Ssh command to execute
@@ -205,4 +205,4 @@ rofi.kb-custom-17:                   Alt+Shift+7
 rofi.kb-custom-18:                   Alt+Shift+8
 ! Custom Keybinding 19
 rofi.kb-custom-19:                   Alt+Shift+9
-rofi.theme: /usr/share/rofi/themes/gruvbox-dark-soft.rasi
+rofi.theme: themes/fullScreen.rasi
