@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/amyth/.oh-my-zsh"
+export ZSH="/home/amyth/.oh-my-zsh"
 source ~/.env
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -127,8 +127,6 @@ for i in dbro_url db_user db_password db_name db_url paydbro_url paydb_user payd
 do
 	unset $i
 done
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 GOPATH=$HOME/go
 PATH="$PATH:/usr/local/go/bin"
 GOROOT="/usr/local/go"

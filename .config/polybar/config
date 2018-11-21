@@ -4,7 +4,7 @@ height = 25
 clickareas = 35
 #monitor = LVDS-1
 monitor = eDP-1
-background = rgba(255,255,255,0)
+background = ${xrdb:background}
 foreground = ${xrdb:foreground}
 
 locale = en_US.UTF-8
