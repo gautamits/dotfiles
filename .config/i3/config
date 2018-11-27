@@ -39,7 +39,7 @@ set $white #FFFFFF
 # Containers
 ##############
 #border	bg   text indicator child_border
-client.focused  $white $base06 $base00 $base00
+#client.focused  $white $base06 $base00 $base00
 #client.focused_inactive  $base06 $base06 $base03 $base00
 #client.unfocused    $base00 $base00 $base07 $base00
 #client.urgent	$base06	$base08	$base07	$base08
@@ -191,7 +191,7 @@ set $mod Mod1
 # Commands
 ############
 
-set $terminal urxvt
+set $terminal termite
 set $browser google-chrome-stable
 set $ror $HOME/.config/i3/bin/run-or-raise.sh
 
@@ -427,7 +427,7 @@ smart_borders on
 # Autostart
 #############
 exec --no-startup-id mpd
-exec --no-startup-id xinput set-prop 11 277 1
+exec --no-startup-id xinput set-prop 12 294 1
 #exec xrandr --dpi 96
 exec --no-startup-id compton -r 12 -o 0.59 -l 0 -t 0
 exec --no-startup-id redshift-gtk -l 28:77 -t 4500:3500
