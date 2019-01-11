@@ -1,5 +1,5 @@
 [global]
-    font = xos4 Terminus Regular 8
+    font = Source Code Pro Regular 8
 
     # Allow a small subset of html markup in notifications and formats:
     #   <b>bold</b>
@@ -24,7 +24,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s</b>\n<i>%b</i>"
 
     # Sort messages by urgency.
     sort = yes
@@ -34,7 +34,7 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
 
     # The frequency with which text that is longer than the notification
     # window allows bounces back and forth.
@@ -49,7 +49,7 @@
 
     # Split notifications into multiple lines if they don't fit into
     # geometry.
-    word_wrap = no
+    word_wrap = yes
 
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
@@ -121,7 +121,7 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 5
+    separator_height = 10
 
     # Padding between text and separator.
     padding = 5
@@ -135,11 +135,11 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = auto
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = true 
+    startup_notification = false 
 
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
@@ -154,7 +154,7 @@
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [frame]
-    width = 2
+    width = 0
     color = "#d1d1d1"
 
 [shortcuts]
@@ -181,17 +181,17 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1d1d1d"
-    foreground = "#d1d1d1"
+    background = "#27a444"
+    foreground = "#ffffff"
     timeout = 10
 
 [urgency_normal]
-    background = "#1d1d1d"
-    foreground = "#d1d1d1"
+    background = "#458eff"
+    foreground = "#ffffff"
     timeout = 5
 
 [urgency_critical]
-    background = "#c795ae"
+    background = "#df4433"
     foreground = "#1d1d1d"
     timeout = 0
 

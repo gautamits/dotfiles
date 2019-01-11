@@ -1,10 +1,5 @@
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
-
-####################################################################################################
-# Fonts
+#########
+# Fonts #
 #########
 
 ## Font for window titles. Will also be used by the bar unless a different font
@@ -13,9 +8,7 @@
 
 ## This font is widely installed, provides lots of unicode glyphs, right-to-left
 ## text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: DejaVu Sans Mono 8
-
-
+font pango: System San Francisco Display 10
 
 set_from_resource $base00 color0
 set_from_resource $base01 color1
@@ -34,19 +27,29 @@ set_from_resource $base0C color12
 set_from_resource $base0D color13
 set_from_resource $base0E color14
 set_from_resource $base0F color15
-set $white #FFFFFF
+
+#espresso color scheme
+set $background #2f343f
+set $foreground #efefef
+set $black      #5b4848
+set $red	    #cb6077
+set $green		#bec55b
+set $yellow		#e4bc87
+set $blue		#8ab3d5
+set $magenta    #a89bb9
+set $cyan	    #7bcdb4
+set $white #aaaaaa
 ####################################################################################################
 # Containers
 ##############
-#border	bg   text indicator child_border
-#client.focused  $white $base06 $base00 $base00
-#client.focused_inactive  $base06 $base06 $base03 $base00
-#client.unfocused    $base00 $base00 $base07 $base00
-#client.urgent	$base06	$base08	$base07	$base08
-#client.placeholder
+set $white #FFFFFF
+#border	bg   text indicator
+client.focused  $white $base06 $base00 $base00
+client.focused_inactive  $base06 $base06 $base03 $base00
+client.unfocused    $base00 $base00 $base07 $base00
+client.urgent	$base06	$base08	$base07	$base08
 
-
-
+hide_edge_borders both
 ####################################################################################################
 # Workspaces
 ##############
@@ -82,20 +85,12 @@ workspace $wsX output HDMI2
 #########################
 
 ## NOTE: the order is crucial here! (= opposite of for_window keyword)
-
-## title
-
-## instance (aka classname)
-
 #workspace 1 is for web
 assign [class="^chromium$"] $ws1
 assign [class="^Firefox$"] $ws1
 assign [class="^vivaldi-stable$"] $ws1
 assign [class="^Opera$"] $ws1
-# assign [class="Nautilus"] $ws1
-
-## class
-assign [class="urxvt"] $ws2
+assign [class="^Firefox Developer Edition$"] $ws1
 
 #workspace 3 is for chat
 
@@ -115,118 +110,63 @@ assign [class="^Eclipse$"] $ws4
 assign [class="^MATLAB"] $ws4
 assign [class="^Subl3$"] $ws4
 assign [class="^Code$"] $ws4
-assign [class="^code$"] $ws4
-
+assign [class="^code-oss$"] $ws4
 
 # workspace 5 is for office
-
 assign [class="^libreoffice-"] $ws5
 assign [class="^TeXstudio$"] $ws5
 assign [class="^Wps$"] $ws5
 assign [class="^Wpp$"] $ws5
 assign [class="^Et$"] $ws5
-
+assign [class="Nautilus"] $ws1
 
 #workspace 6 is for music
-
 assign [class="^Clementine$"] $ws6
 assign [class="^Mixxx$"] $ws6
 assign [class="^Spotify$"] $ws6
 assign [class="Gmpc"] $ws6
 
-##################################################
-# Automatic actions
 #####################
-
-## NOTE: the order is crucial here! (= opposite of assign keyword)
-
-## window_role
-# for_window [window_roleg="^browser$" urgent=latest] focus
-
-for_window [window_role="^pop-up$"] floating enable
-for_window [window_role="^task_dialog$"] floating enable
-
-for_window [window_role="^buddy_list$"] move scratchpad
-
-## class
-for_window [class="^TeamViewer$"] floating enable
-for_window [class="^rdesktop$"] floating disable
-for_window [class="^SWT$"] floating enable
-
-for_window [class="^Kodi$"] focus
-for_window [class="^Vlc$"] focus
-
-## instance (aka classname)
-for_window [instance="^web.whatsapp.com$"] floating disable
-for_window [instance="^m.facebook.com__messages$"] floating disable
-for_window [instance="^hypem.com__popular$"] floating disable
-for_window [instance="^soundcloud.com__stream$"] floating disable
-
-## title
-for_window [title="Preferences$"] floating enable
-for_window [title="^Conversations with"] floating disable
-
-
-####################################################################################################
-# Keyboard bindings
+# Keyboard bindings #
 #####################
 
 ## Keycodes can be found in:
 ## /usr/share/X11/xkb/keycodes/evdev
 
 ## Expected one of these tokens:
-##	Mod1 = Alt
-##	Mod2 = ?
-##	Mod3 = ?
-##	Mod4 = Win
-##	Mod5 = ?
-##	Shift
-##	Control/Ctrl
-##	+
-##	<end>
+##	Mod1 = Alt, Mod2 = ?, Mod3 = ?,Mod4 = Win,Mod5 = ?,Shift
 set $mod Mod1
 
 
-##################################################
-# Commands
+############
+# Commands #
 ############
 
-set $terminal termite
-set $browser google-chrome-stable
+set $terminal urxvt
+#set $browser google-chrome-stable
 set $ror $HOME/.config/i3/bin/run-or-raise.sh
 
 
-##################################################
-# One key
+###########
+# One key #
 ###########
 
 ## Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier Shift
-bindsym $mod+Shift+s exec rofi -show window -theme ~/.config/rofi/themes/fullScreen.rasi
 
 bindsym Ctrl+Mod1+Delete exec systemctl --user start suspend
-
-#bindsym Mod1+Tab focus right
-#bindsym Mod1+Shift+Tab focus down
-
+bindsym Ctrl+Mod1+T exec termite
 # set compose key
 exec setxkbmap -option compose:ralt
 
-##################################################
-# w/o secondary modifier
+##########################
+# w/o secondary modifier #
 ##########################
 
 bindsym $mod+Tab workspace back_and_forth
-
 bindsym $mod+F12 fullscreen toggle
-# bindsym $mod+F12
-
 bindsym Print exec gnome-screenshot --interactive
-# bindszm Scroll)Lock
 bindsym Pause scratchpad show
-
-## Tilde
-# bindcode $mod+49 exec systemctl --user start raid-spindown
 
 ## Switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -240,20 +180,21 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
 
-bindsym $mod+c exec $browser
-bindsym $mod+d exec rofi -show drun -theme ~/.config/rofi/themes/fullScreen.rasi
-#bindsym $mod+d exec dmenu_run
-bindsym $mod+e layout toggle split
+bindsym $mod+d exec rofi -modi "drun#run#ssh" -show drun -lines 5 -eh 2 -width 50 -padding 100 -opacity 80 -bw 0 -bc "#263238" -bg "#263238" -fg "#f7f7fa" -hlbg "#263238" -hlfg "#9575cd" -font "Source Code Pro 12" -hide-scrollbar -auto-select
+
 bindsym $mod+f fullscreen toggle
 bindsym $mod+g exec gcolor2
 bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+q kill
-bindsym $mod+l exec ~/.config/scripts/i3blur
-#bindsym $mod+m exec geary
-
-bindsym $mod+s layout stacking
+bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+Return exec $terminal
+
+
+# layout
+bindsym $mod+s layout stacking
+bindsym $mod+Ctrl+e layout default
+bindsym $mod+e layout toggle split
 bindsym $mod+w layout tabbed
 
 
@@ -266,12 +207,9 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 
-##################################################
-# w/ Shift
 ############
-
-bindsym $mod+Shift+Pause move scratchpad
-
+# w/ Shift #
+############
 ## Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
@@ -290,25 +228,19 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+a move left
 bindsym $mod+Shift+d move right
-#bindsym $mod+Shift+s move down
+bindsym $mod+Shift+s move down
 bindsym $mod+Shift+w move up
 
 
-##################################################
-# w/ Ctrl
+###########
+# w/ Ctrl #
 ###########
 
 bindsym $mod+Ctrl+Escape exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
-
 bindsym $mod+Ctrl+a sticky toggle
-
-bindsym $mod+Ctrl+e layout default
 bindsym $mod+Ctrl+f floating toggle
 bindsym $mod+Ctrl+g exec xrandr --output eDP1 --auto --output VIRTUAL2 --off
 bindsym $mod+Ctrl+h exec xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1
-
-#bindsym $mod+Ctrl+q layout tabbed
-bindsym $mod+r mode "resize"
 bindsym $mod+Shift+r restart
 bindsym $mod+z exec --no-startup-id ~/.config/scripts/draw.sh
 
@@ -316,33 +248,18 @@ bindsym $mod+z exec --no-startup-id ~/.config/scripts/draw.sh
 bindsym Mod1+F4 kill
 
 
-##################################################
-# Media keys
+##############
+# Media keys #
 ##############
 
 ## Misc
 bindsym XF86Sleep exec systemctl --user start suspend
-# bindsym XF86Tools
 bindsym XF86Calculator exec gnome-calculator
-
-## Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset 'Master' 5%+
 bindsym XF86AudioLowerVolume exec amixer -q sset 'Master' 5%-
 bindsym XF86AudioMute exec amixer -q sset Master toggle
-
-## GIGABYTE macro keys - purple = media
-#bindsym Alt+Shift+PgUp exec amixer -q sset 'Master' 5%+
-#bindsym Alt+Shift+PgDn exec amixer -q sset 'Master' 5%-
-
-## Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
-## Touchpad controls
-# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
-## Media player controls
-# bindsym XF86AudioStop
 bindsym --release XF86AudioPlay exec playerctl play-pause
 bindsym --release XF86AudioNext exec playerctl next
 bindsym --release XF86AudioPrev exec playerctl previous
@@ -354,19 +271,12 @@ bindsym --release XF86AudioPrev exec playerctl previous
 #########
 
 ## Resize window (you can also use the mouse for that)
-mode "resize" {
-	# These bindings trigger as soon as you enter the resize mode
-
-	# Pressing left will shrink the window’s width.
-	# Pressing right will grow the window’s width.
-	# Pressing up will shrink the window’s height.
-	# Pressing down will grow the window’s height.
+bindsym $mod+r mode "resize"
+mode "resize" {# left shrink width, right grow width, up shrink height,down grow height.
 	bindsym Left resize shrink width 50 px or 10 ppt
 	bindsym Down resize grow height 50 px or 10 ppt
 	bindsym Up resize shrink height 50 px or 10 ppt
 	bindsym Right resize grow width 50 px or 10 ppt
-
-	# back to normal: Enter or Escape
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
@@ -375,63 +285,68 @@ mode "resize" {
 bindsym $mod+m mode "move" focus floating
 mode "move" {
     bindsym $mod+Tab focus right
-
     bindsym Left  move left
     bindsym Down  move down
     bindsym Up    move up
     bindsym Right move right
-
     bindsym h     move left
     bindsym j     move down
     bindsym k     move up
     bindsym l     move right
-
-    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-####################################################################################################
-# Mouse bindings
-##################
 
-#bindsym button2 kill
+#bar {
+#
+#    height 18
+#    workspace_buttons yes
+#    font pango:icomoon 8
+#    status_command i3blocks
+#colors {
+#        background $background
+#        statusline $foreground
+#        separator  $foreground
+#        #			<border>		<background>	<text>
+#        focused_workspace		$background		$background		$red
+#        active_workspace		$background		$background		$white
+#        inactive_workspace		$background		$background		$white
+#        urgent_workspace		$background		$background		$white
+#        }
+
+#}
 
 
 ####################################################################################################
 # Mouse settings
 ##################
-
-# focus_follows_mouse yes
-# mouse_warping none
-
+focus_follows_mouse yes
+mouse_warping none
 
 ####################################################################################################
 # Borders
 ###########
-
 new_window pixel 2
 new_float pixel 3
 
 
 # Gaps
 ########
-
 gaps inner 8
 gaps outer 4
-
 smart_gaps on
 smart_borders on
 
-
-####################################################################################################
-# Autostart
 #############
+# Autostart #
+#############
+exec_always compton -f
 exec --no-startup-id mpd
-exec --no-startup-id xinput set-prop 12 294 1
+exec --no-startup-id xinput set-prop 11 287 1
 #exec xrandr --dpi 96
-exec --no-startup-id compton -r 12 -o 0.59 -l 0 -t 0
-exec --no-startup-id redshift-gtk -l 28:77 -t 4500:3500
-exec --no-startup-id xss-lock -- ~/.config/scripts/i3blur
+#exec --no-startup-id compton -r 12 -o 0.59 -l 0 -t 0
+exec --no-startup-id redshift -l 28:77 -t 2500:2000
+exec --no-startup-id xss-lock -- betterlockscreen -l
 #exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id exec nm-applet
@@ -439,15 +354,13 @@ exec --no-startup-id franz
 #exec --no-startup-id draw
 exec --no-statup-id exec conky -c ~/.config/conky/sidepanes/sidepanes.conkyrc
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id feh --bg-scale ~/workspace/dotfiles/.config/img/apocalyptic-hipster.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/2464.jpg
 exec --no-startup-id clipit
+
 #####################################################################################################################
 #################                          floating or tiled                                        #################
 #####################################################################################################################
-
-
 #floating enabled from some programs - find with xprop
-
 for_window [class="URxvt" instance="floating"] floating enable
 for_window [class="Bleachbit"] floating disable
 for_window [class="Blueberry.py"] floating enable
@@ -459,7 +372,7 @@ for_window [class="^Gpick$"] floating enable
 for_window [class="Hexchat"] floating disable
 for_window [class="Imagewriter"] floating enable
 for_window [class="Font-manager"] floating enable
-#for_window [class="qt5ct|Lxappearance] floating enable
+for_window [class="qt5ct|Lxappearance"] floating enable
 for_window [class="Nitrogen"] floating disable
 for_window [class="Pavucontrol"] floating disable
 for_window [class="Peek"] floating enable
@@ -474,20 +387,28 @@ for_window [class="Xfburn"] floating disable
 for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="Xfce4-settings-manager"] floating disable
 for_window [class="Xfce4-taskmanager"] floating enable
-
-
-#for_window [instance="gimp"] floating disable
+for_window [class="^TeamViewer$"] floating enable
+for_window [class="^rdesktop$"] floating disable
+for_window [class="^SWT$"] floating enable
+for_window [class="^Kodi$"] focus
+for_window [class="^Vlc$"] focus
+for_window [instance="gimp"] floating disable
 for_window [instance="script-fu"] border normal
 for_window [instance="variety"] floating disable
-
-
+for_window [instance="^web.whatsapp.com$"] floating disable
+for_window [instance="^m.facebook.com__messages$"] floating disable
+for_window [instance="^hypem.com__popular$"] floating disable
+for_window [instance="^soundcloud.com__stream$"] floating disable
 for_window [title="Copying"] floating enable
 for_window [title="Deleting"] floating enable
 for_window [title="Moving"] floating enable
 for_window [title="^Terminator Preferences$"] floating enable
-
-
-#for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
+for_window [title="Preferences$"] floating enable
+for_window [title="^Conversations with"] floating disable
+for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
+for_window [window_role="^pop-up$"] floating enable
+for_window [window_role="^task_dialog$"] floating enable
+for_window [window_role="^buddy_list$"] move scratchpad
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable

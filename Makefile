@@ -1,3 +1,6 @@
+execs:
+	mkdir -p ~/.local/bin/
+	ln -s `pwd`/scripts/* ~/.local/bin/
 powerline-all: powerline-tool powerline-fonts powerline-bash powerline-vim
 	@echo powerline configured. please relogin
 powerline-tool:

@@ -1,0 +1,4 @@
+font pango: System San Francisco Display 13 : ~/.config/i3/config
+gtk-font-name="System San Francisco Display 10" : ~/.gtkrc-2.0.mine : ~/.gtk-3.0/settings.ini
+install infinality
+
