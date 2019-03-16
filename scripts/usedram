@@ -11,11 +11,16 @@ mem_info=$(</proc/meminfo)
 		mem_info=$(echo $(echo $(mem_info=${mem_info// /}; echo ${mem_info//kB/})))
 		for m in $mem_info; do
 			case ${m//:*} in
-				"MemTotal") usedmem=$((usedmem+=${m//*:})); totalmem=${m//*:} ;;
-				"ShMem") usedmem=$((usedmem+=${m//*:})) ;;
-				"MemFree"|"Buffers"|"Cached"|"SReclaimable") usedmem=$((usedmem-=${m//*:})) ;;
+				"MemTotal") 
+					usedmem=$((usedmem+=${m//*:}))
+					totalmem=${m//*:} ;;
+				"ShMem")
+				       	usedmem=$((usedmem+=${m//*:})) ;;
+				"MemFree"|"Buffers"|"Cached"|"SReclaimable") 
+					usedmem=$((usedmem-=${m//*:})) ;;
 			esac
 		done
+		percentageUsed=$(( usedmem * 100 / totalmem ))
 		usedmem=$((usedmem / 1024))
 		totalmem=$((totalmem / 1024))
 		mem="${usedmem}MB / ${totalmem}MB"
@@ -29,6 +34,11 @@ mem_info=$(</proc/meminfo)
 ## Only used RAM
 	elif  [[ $1 = "-i" ]]; then
     echo "  $usedmem MB"
-	else
-    echo "$usedmem MB"
+## ONly percentage used
+	elif [[ $1 = "-pi" ]]; then
+   echo " $percentageUsed%"
+	elif [[ $1 = "-p" ]]; then
+   echo "$percentageUsed%"
+  	else
+   echo "$usedmem MB"
 	fi
