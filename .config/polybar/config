@@ -20,7 +20,7 @@ batteryColor = #A13332
 [bar/mybar]
 width = 100%
 height = 18
-radius = 6.0
+radius = 0
 fixed-center = true
 
 background = ${colors.background}
@@ -29,7 +29,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -38,11 +38,11 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = fixed:pixelsize=10;2
-font-1 = Font Awesome 5 Free:style=Regular:pixelsize=10;2
-font-2 = siji:pixelsize=10;1
+font-0 = fixed:pixelsize=10;3
+font-1 = 3270Medium Nerd Font:style=Medium:size=14;3
+font-2 = Wuncon Siji:pixelsize=10;1
 font-3 = unifont:fontformat=truetype:pixelsize=8:antialias=false;2
-font-4 = 3270Medium Nerd Font:style=Medium:size=14;3
+font-4 = Font Awesome 5 Free:style=Regular:pixelsize=10;2
 font-5 = Font Awesome 5 Free Solid:pixelsize=10;2
 font-6 = 3270Medium Nerd Font:style=Medium:size=12;3
 font-7 = 3270Medium Nerd Font:style=Medium:size=18;4
@@ -51,20 +51,23 @@ modules-left = i3
 modules-center = 
 modules-right = arrow7 filesystem memory arrow5 wlan arrow4 cpu arrow8 battery arrow3 temperature arrow2 pacman-updates updtaes-arch-aur arrow1 powermenu
 
-scroll-up = i3wm-wsnect
-scroll-down = i3wm-wsprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
 click-middle = i3-scrot
-cursor-scroll = ns-resize
+;cursor-scroll = ns-resize
 
 bottom = true
 
+tray-position = right
+tray-padding = 2
+tray-background = #000
 [bar/topBar]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 18
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 0
 fixed-center = true
 
 background = ${colors.background2}
@@ -73,7 +76,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -82,11 +85,11 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = fixed:pixelsize=10;2
-font-1 = Font Awesome 5 Free:style=Regular:pixelsize=10;2
-font-2 = siji:pixelsize=10;1
+font-0 = Roboto:size=10;3
+font-1 = 3270Medium Nerd Font:style=Medium:size=14;3
+font-2 = Wuncon Siji:pixelsize=10;1
 font-3 = unifont:fontformat=truetype:pixelsize=8:antialias=false;2
-font-4 = 3270Medium Nerd Font:style=Medium:size=14;3
+font-4 = Font Awesome 5 Free:style=Regular:pixelsize=10;2
 font-5 = Font Awesome 5 Free Solid:pixelsize=10;2
 font-6 = 3270Medium Nerd Font:style=Medium:size=12;3
 font-7 = 3270Medium Nerd Font:style=Medium:size=18;4
@@ -419,7 +422,7 @@ format-background = ${colors.memoryColor}
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp5s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>

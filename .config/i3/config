@@ -342,7 +342,7 @@ smart_borders on
 #############
 exec_always compton -f
 exec --no-startup-id mpd
-exec --no-startup-id xinput set-prop 11 287 1
+exec --no-startup-id xinput set-prop 11 288 1
 #exec xrandr --dpi 96
 #exec --no-startup-id compton -r 12 -o 0.59 -l 0 -t 0
 exec --no-startup-id redshift -l 28:77 -t 2500:2000
@@ -354,7 +354,7 @@ exec --no-startup-id franz
 #exec --no-startup-id draw
 exec --no-statup-id exec conky -c ~/.config/conky/sidepanes/sidepanes.conkyrc
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/2464.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/red-mountain.jpg
 exec --no-startup-id clipit
 
 #####################################################################################################################
