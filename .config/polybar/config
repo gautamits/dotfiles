@@ -309,6 +309,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+exec = thunar
 
 label-mounted = %{F#FFFFFF}  %mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -342,41 +343,55 @@ label-empty-padding = 2
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+wrapping-scroll = true
+pin-workspaces = true
+enable-scroll = true
+module-offset-y = 3
+
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = ""
-label-focused-font = 6
+label-focused = %icon%
+label-focused-font = 5
 label-focused-background = ${colors.background}
+label-focused-foreground = #f00
 label-focused-underline = 
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = ""
+label-unfocused = %icon%
 label-unfocused-padding = 1
+label-unfocused-font = 6
 
 ; visible = Active workspace on unfocused monitor
-label-visible = ""
+label-visible = %icon%
 label-visible-background = ${colors.background}
 label-visible-underline =
 label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
-label-urgent = ""
+label-urgent = %icon%
 label-urgent-background = ${colors.background}
 label-urgent-font = 6
 label-urgent-foreground = ${colors.cpuColor}
 label-urgent-padding = 1
-
-; Separator in between workspaces
-; label-separator = |
 
 [module/xbacklight]
 type = internal/xbacklight
