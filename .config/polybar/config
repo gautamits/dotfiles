@@ -570,7 +570,7 @@ format-charging = <animation-charging> <label-charging>
 format-charging-underline =
 format-charging-background = ${colors.batteryColor}
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = 
 format-discharging-background = ${colors.batteryColor}
 
