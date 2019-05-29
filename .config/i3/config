@@ -182,7 +182,7 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
 
-bindsym $mod+d exec rofi -modi "drun#run#ssh" -show drun -lines 5 -eh 2 -width 50 -padding 100 -opacity 80 -bw 0 -bc "#263238" -bg "#263238" -fg "#f7f7fa" -hlbg "#263238" -hlfg "#9575cd" -font "Source Code Pro 12" -hide-scrollbar -auto-select
+bindsym $mod+d exec rofi -modi "drun#run#ssh" -show drun -lines 5 -eh 2 -width 50 -padding 100 -opacity 80 -bw 0 -bc "#263238" -bg "#263238" -fg "#f7f7fa" -hlbg "#263238" -hlfg "#9575cd" -font "Source Code Pro 12" -hide-scrollbar
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+g exec gcolor2

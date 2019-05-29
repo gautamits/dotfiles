@@ -1,9 +1,7 @@
 [colors]
-;background = ${xrdb:color0:#222}
 background = #061414
 background-alt = #444
 background2 = #145149
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
@@ -49,7 +47,7 @@ font-7 = 3270Medium Nerd Font:style=Medium:size=18;4
 
 modules-left = i3
 modules-center = 
-modules-right = arrow7 filesystem memory arrow5 wlan arrow4 cpu arrow8 battery arrow3 temperature arrow2 pacman-updates updtaes-arch-aur arrow1 powermenu
+modules-right = arrow9 date arrow8 filesystem arrow7 memory arrow6 wlan arrow5 cpu arrow4 battery arrow3 temperature arrow2 pacman-updates updtaes-arch-aur arrow1 powermenu
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
@@ -425,7 +423,7 @@ interval = 2
 format-background = ${colors.cpuColor}  
 format-underline = 
 label =  "%percentage:2%%"
-format-prefix = " "
+format-prefix = " "
 format-prefix-font = 7
 
 [module/memory]
@@ -433,7 +431,7 @@ type = internal/memory
 interval = 2
 format-underline = 
 label = "%percentage_used%%"
-format-prefix= " "
+format-prefix= " "
 format-prefix-font = 7
 
 format-background = ${colors.memoryColor}
@@ -490,7 +488,8 @@ date-alt = " %Y-%m-%d"
 time = %I:%M
 time-alt = %I:%M:%S
 
-format-background = ${colors.dateColor}
+format-background = #121a65
+format-prefix = "⏰ "
 
 label = %date% %time%
 
@@ -682,7 +681,7 @@ content-background = ${colors.dateColor}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 7
-content-foreground = ${colors.dateColor}
+content-foreground  = ${colors.dateColor}
 content-background = ${colors.tempColor}
 
 [module/arrow3]
@@ -696,17 +695,24 @@ content-background = ${colors.batteryColor}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 7
+content-foreground = ${colors.batteryColor}
+content-background = ${colors.cpuColor}
+
+[module/arrow5]
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 7
 content-foreground = ${colors.cpuColor}
 content-background = ${colors.wlanColor}
 
-[module/arrow5]
+[module/arrow6]
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 7
 content-foreground = ${colors.wlanColor}
 content-background = ${colors.memoryColor}
 
-[module/arrow6]
+[module/arrow7]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
@@ -714,19 +720,19 @@ content-font = 7
 content-foreground = ${colors.memoryColor}
 content-background = ${colors.fsColor}
 
-[module/arrow7]
-type = custom/text
-content = "%{T2} %{T-}"
-content-font = 7
-content-foreground = ${colors.fsColor}
-content-background = ${colors.background}
-
 [module/arrow8]
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 7
-content-foreground = ${colors.batteryColor}
-content-background = ${colors.cpuColor}
+content-foreground = ${colors.fsColor}
+content-background = #121a65
+
+[module/arrow9]
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 7
+content-foreground = #121a65
+content-background = ${colors.background}
 
 [module/semicircleR]
 type = custom/text
